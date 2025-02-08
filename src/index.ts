@@ -24,5 +24,6 @@ matrix
 // Exit after 5 seconds (5000 milliseconds)
 setTimeout(() => {
     console.log('Exiting');
+    matrix.clear();
     process.exit(0); // 0 indicates successful exit
   }, 5000);
