@@ -1,6 +1,6 @@
+import { spawn } from 'child_process';
 import express from 'express';
 import path from 'path';
-import { run } from 'matrix';
 
 const app = express();
 const PORT = 8080;
@@ -13,6 +13,18 @@ app.listen(PORT, "0.0.0.0", () => {
 });
 
 app.get('/api/message', (req, res) => {
-  run();
-  res.json({ message: 'Hello from your API!' });
+  const matrixProcess = spawn('node', ['node_modules/matrix/dist/index.js']);
+  matrixProcess.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
+  });
+
+  matrixProcess.stderr.on('data', (data) => {
+    console.error(`stderr: ${data}`);
+  });
+
+  matrixProcess.on('close', (code) => {
+    console.log(`matrix process exited with code ${code}`);
+  });
+
+  res.json({ message: 'Hello'});
 });
