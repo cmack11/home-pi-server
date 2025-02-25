@@ -29,6 +29,6 @@ export function run() {
   setTimeout(() => {
     console.log('Exiting');
     matrix.clear().sync();
-    process.exit(0); // 0 indicates successful exit
+    // process.exit(0); // 0 indicates successful exit
   }, 5000);
 }

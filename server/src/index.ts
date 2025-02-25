@@ -8,7 +8,7 @@ const PORT = 8080;
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 
