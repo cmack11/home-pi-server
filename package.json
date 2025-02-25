@@ -6,7 +6,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "sudo node dist/index.js"
+    "start": "sudo node dist/index.js",
+    "format": "prettier -w src/"
   },
   "keywords": [],
   "author": "",
