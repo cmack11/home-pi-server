@@ -5,7 +5,7 @@ import {
   PixelMapperType,
 } from 'rpi-led-matrix';
 
-export function run() {
+
   const matrix = new LedMatrix(
     {
       ...LedMatrix.defaultMatrixOptions(),
@@ -31,4 +31,6 @@ export function run() {
     matrix.clear().sync();
     // process.exit(0); // 0 indicates successful exit
   }, 5000);
-}
+
+
+
