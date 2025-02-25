@@ -13,7 +13,7 @@ app.listen(PORT, "0.0.0.0", () => {
 });
 
 app.get('/api/message', (req, res) => {
-  const matrixProcess = spawn('node', ['node_modules/matrix/dist/index.js']);
+  const matrixProcess = spawn('sudo', ['node', 'node_modules/matrix/dist/index.js']);
   matrixProcess.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
   });
