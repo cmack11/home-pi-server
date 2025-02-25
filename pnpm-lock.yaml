@@ -15,6 +15,9 @@ importers:
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
+      prettier:
+        specifier: ^3.5.2
+        version: 3.5.2
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -32,6 +35,11 @@ packages:
 
   node-addon-api@3.2.1:
     resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
+
+  prettier@3.5.2:
+    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   rpi-led-matrix@1.14.0:
     resolution: {integrity: sha512-z4Fo57l4DURkP3+JHxJHrJppO5nR3Lqz9GFr9Kp4IapIqCe+KMXnPI7em+q4v6iu67hDoXMZZ3QFZeHovgpNOg==}
@@ -58,6 +66,8 @@ snapshots:
   file-uri-to-path@1.0.0: {}
 
   node-addon-api@3.2.1: {}
+
+  prettier@3.5.2: {}
 
   rpi-led-matrix@1.14.0:
     dependencies:
