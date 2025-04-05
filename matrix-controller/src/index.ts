@@ -25,6 +25,7 @@ wss.on("connection", (ws) => {
 
       if(data?.command === 'test') {
         matrix.testBlueSquare();
+        matrix.sync();
        } else if(data?.command === 'cycle') {
        matrix.pixelColorCycleAnimation();
       } else if(data?.command) {
