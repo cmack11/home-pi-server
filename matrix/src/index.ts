@@ -49,8 +49,8 @@ export class ConfiguredMatrix {
     return this.matrix.sync();
   }
 
-  public setPixel(row: number, col: number, color: number): LedMatrixInstance {
-    return this.matrix.fgColor(color).setPixel(row, col);
+  public setPixel(row: number, col: number, color: number): void {
+    return this.matrix.fgColor(color).setPixel(row, col).sync();
   }
 
   public testBlueSquare(): LedMatrixInstance {
