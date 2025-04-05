@@ -1,5 +1,6 @@
 import express from "express";
 import { WebSocketServer } from "ws";
+import { ConfiguredMatrix } from 'matrix';
 
 const app = express();
 const PORT = 3000;
@@ -12,6 +13,8 @@ const server = app.listen(PORT, () => {
 // Create a WebSocket server
 const wss = new WebSocketServer({ server });
 
+const matrix = new ConfiguredMatrix();
+
 wss.on("connection", (ws) => {
   console.log("Client connected");
 
@@ -19,7 +22,9 @@ wss.on("connection", (ws) => {
     try {
       const data = JSON.parse(message.toString());
 
-      if (data.command) {
+      if(data?.command === 'test') {
+       matrix.testBlueSquare().sync();
+      }if (data.command) {
         console.log(`Received command: ${data.command}`);
       } else {
         console.log("Invalid message format");

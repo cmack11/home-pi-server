@@ -3,34 +3,52 @@ import {
   LedMatrix,
   LedMatrixUtils,
   PixelMapperType,
+  type LedMatrixInstance
 } from 'rpi-led-matrix';
 
+export class ConfiguredMatrix {
 
-  const matrix = new LedMatrix(
-    {
-      ...LedMatrix.defaultMatrixOptions(),
-      rows: 32,
-      cols: 64,
-      chainLength: 2,
-      hardwareMapping: GpioMapping.AdafruitHat,
-      pixelMapperConfig: LedMatrixUtils.encodeMappers({
-        type: PixelMapperType.U,
-      }),
-    },
-    {
-      ...LedMatrix.defaultRuntimeOptions(),
-      gpioSlowdown: 1,
-    },
-  );
+  private matrix: LedMatrixInstance;
 
-  matrix.clear().brightness(100).fgColor(0x0000ff).fill().sync();
+  constructor() {
+    this.matrix = new LedMatrix(
+      {
+        ...LedMatrix.defaultMatrixOptions(),
+        rows: 32,
+        cols: 64,
+        chainLength: 2,
+        hardwareMapping: GpioMapping.AdafruitHat,
+        pixelMapperConfig: LedMatrixUtils.encodeMappers({
+          type: PixelMapperType.U,
+        }),
+      },
+      {
+        ...LedMatrix.defaultRuntimeOptions(),
+        gpioSlowdown: 1,
+      },
+    );
+  }
 
-  // Exit after 5 seconds (5000 milliseconds)
-  setTimeout(() => {
-    console.log('Exiting');
-    matrix.clear().sync();
-    // process.exit(0); // 0 indicates successful exit
-  }, 5000);
+  public clear(): LedMatrixInstance {
+    return this.matrix.clear();
+  }
 
+  public reset(): LedMatrixInstance {
+    return this.clear().brightness(100);
+  }
+
+  public sync(): void {
+    return this.matrix.sync();
+  }
+
+  public testBlueSquare(): LedMatrixInstance {
+    setTimeout(() => {
+      this.matrix.clear().sync();
+    }, 5000);
+
+    return this.matrix.fgColor(0x0000ff).fill()
+  }
+
+}
 
 

@@ -8,17 +8,30 @@ importers:
 
   .: {}
 
+  matrix:
+    dependencies:
+      rpi-led-matrix:
+        specifier: ^1.15.0
+        version: 1.15.0
+      typescript:
+        specifier: ^4.5.0
+        version: 4.9.5
+    devDependencies:
+      '@types/node':
+        specifier: ^16.11.6
+        version: 16.18.126
+
   matrix-controller:
     dependencies:
       express:
         specifier: ^4.17.1
         version: 4.21.2
+      matrix:
+        specifier: workspace:*
+        version: link:../matrix
       net:
         specifier: ^1.0.2
         version: 1.0.2
-      rpi-led-matrix:
-        specifier: ^1.0.0
-        version: 1.15.0
       typescript:
         specifier: ^4.5.0
         version: 4.9.5
