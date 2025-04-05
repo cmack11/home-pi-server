@@ -1,6 +1,10 @@
 {
   "name": "home-pi-server",
   "private": true,
+  "scripts": {
+    "build": "pnpm -r run build",
+    "start:matrix-server": "pnpm --filter matrix-controller run start"  
+  },
   "workspaces": [
     "matrix-controller"
   ],
