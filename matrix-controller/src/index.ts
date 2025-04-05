@@ -23,7 +23,10 @@ wss.on("connection", (ws) => {
       const data = JSON.parse(message.toString());
       console.log('received', data)
 
-      if(data?.command === 'test') {
+      if(data?.command === 'reset') {
+        matrix.reset().sync();
+      }
+      else if(data?.command === 'test') {
         matrix.testBlueSquare();
         matrix.sync();
        } else if(data?.command === 'cycle') {
