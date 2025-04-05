@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r run build",
-    "start:matrix-server": "pnpm --filter matrix-controller run start"  
+    "start:matrix-server": "sudo env \"PATH=$PATH\" pnpm --filter matrix-controller run start"  
   },
   "workspaces": [
     "matrix-controller"
