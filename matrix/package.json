@@ -7,14 +7,16 @@
   "scripts": {
     "build": "tsc",
     "start": "sudo node dist/index.js",
-    "format": "prettier -w src/"
+    "format": "prettier -w src/",
+    "demo": "tsx src/demos/index.ts"
   },
   "dependencies": {
     "rpi-led-matrix": "^1.15.0",
     "typescript": "^4.5.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.6"
+    "@types/node": "^16.11.6",
+    "tsx": "^4.19.3"
   },
   "keywords": [],
   "author": "",

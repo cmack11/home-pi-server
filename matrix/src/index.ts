@@ -15,8 +15,8 @@ export class ConfiguredMatrix {
   private static DEVICE_MATRIX_COLS_SIZE: MatrixOptions["cols"] = 64;
   private static NUM_DEVICE_MATRICES: MatrixOptions["chainLength"]  = 2;
 
-  private static TOTAL_ROWS = this.DEVICE_MATRIX_COLS_SIZE * this.NUM_DEVICE_MATRICES;
-  private static TOTAL_COLS = this.DEVICE_MATRIX_COLS_SIZE;
+  public static TOTAL_ROWS = this.DEVICE_MATRIX_COLS_SIZE * this.NUM_DEVICE_MATRICES;
+  public static TOTAL_COLS = this.DEVICE_MATRIX_COLS_SIZE;
 
   constructor() {
     this.matrix = new LedMatrix(
