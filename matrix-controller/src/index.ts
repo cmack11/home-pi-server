@@ -21,8 +21,11 @@ wss.on("connection", (ws) => {
   ws.on("message", (message) => {
     try {
       const data = JSON.parse(message.toString());
+      console.log('received', data)
 
       if(data?.command === 'test') {
+        matrix.testBlueSquare();
+       } else if(data?.command === 'cycle') {
        matrix.pixelColorCycleAnimation();
       } else if(data?.command) {
         matrix.setPixel(Number(data.x), Number(data.y), 0x0000FF)
