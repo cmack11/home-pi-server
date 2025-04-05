@@ -23,7 +23,7 @@ wss.on("connection", (ws) => {
       const data = JSON.parse(message.toString());
 
       if(data?.command === 'test') {
-       matrix.testBlueSquare().sync();
+       matrix.pixelColorCycleAnimation();
       }if (data.command) {
         console.log(`Received command: ${data.command}`);
       } else {
@@ -35,6 +35,7 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
+    matrix.clear().sync();
     console.log("Client disconnected");
   });
 });
