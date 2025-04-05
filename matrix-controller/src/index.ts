@@ -24,7 +24,9 @@ wss.on("connection", (ws) => {
 
       if(data?.command === 'test') {
        matrix.pixelColorCycleAnimation();
-      }if (data.command) {
+      } else if(data?.command) {
+        matrix.setPixel(Number(data.x), Number(data.y), 0x0000FF)
+      } else if (data.command) {
         console.log(`Received command: ${data.command}`);
       } else {
         console.log("Invalid message format");
